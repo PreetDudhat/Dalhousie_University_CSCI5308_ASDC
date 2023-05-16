@@ -1,0 +1,70 @@
+<!--
+Reference: https://www.javaguides.net/2019/04/spring-boot-thymeleaf-crud-example-tutorial.html
+-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add assignment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+<body>
+<div class="container my-5">
+    <h3> Add assignment</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <form action="#" th:action="@{/api/courses/getCourseDetails/{id}/assignments/add(id=${course.courseId})}"
+                      th:object="${assignment}" method="post">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="assignmentName" class="col-form-label">Assignment Name</label> <input
+                                type="text" th:field="*{assignmentName}" class="form-control" id="assignmentName"
+                                placeholder="Assignment Name"> <span
+                                th:if="${#fields.hasErrors('assignmentName')}" th:errors="*{assignmentName}"
+                                class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="assignmentDescription" class="col-form-label">Assignment Description</label> <input
+                                type="text" th:field="*{assignmentDescription}" class="form-control" id="assignmentDescription"
+                                placeholder="Assignment Description"> <span
+                                th:if="${#fields.hasErrors('assignmentDescription')}" th:errors="*{assignmentDescription}"
+                                class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="assignmentDeadline" class="col-form-label">Assignment Deadline</label> <input
+                                type="text" th:field="*{assignmentDeadline}" class="form-control" id="assignmentDeadline"
+                                placeholder="yyyy-mm-dd"> <span
+                                th:if="${#fields.hasErrors('assignmentDeadline')}" th:errors="*{assignmentDeadline}"
+                                class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="assignmentTotalScore" class="col-form-label">Assignment TotalScore</label> <input
+                                type="text" th:field="*{assignmentTotalScore}" class="form-control" id="assignmentTotalScore"
+                                placeholder="Assignment TotalScore"> <span
+                                th:if="${#fields.hasErrors('assignmentTotalScore')}" th:errors="*{assignmentTotalScore}"
+                                class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <input type="submit" class="btn btn-primary"
+                                   value="Add assignment">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

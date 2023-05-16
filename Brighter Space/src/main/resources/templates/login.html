@@ -1,0 +1,30 @@
+<!--
+Reference: https://www.javaguides.net/2019/04/spring-boot-thymeleaf-crud-example-tutorial.html
+-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<form th:action="@{/api/login}" method="post" th:object="${login}">
+    <div style="text-align: center;"><h1>Login</h1></div>
+    <br>
+    <div style="text-align: center;">
+        <label>E-mail:</label>
+        <input type="text" th:field="*{email}"/><br/>
+    </div>
+    <br>
+    <div style="text-align: center;">
+        <label>Password:</label>
+        <input type="password" th:field="*{password}"/><br/>`
+    </div>
+    <br>
+    <div style="text-align: center;">
+        <button type="submit">Login</button>
+    </div>
+</form>
+</body>
+</html>

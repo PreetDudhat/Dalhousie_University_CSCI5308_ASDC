@@ -1,0 +1,44 @@
+<!--
+Reference: https://www.javaguides.net/2019/04/spring-boot-thymeleaf-crud-example-tutorial.html
+-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+<form action="#" th:action="@{/api/register}" method="post" th:object="${signUp}">
+    <div style="text-align: center;"><h1>Register</h1></div>
+    <br>
+    <div style="text-align: center;">
+        <label>Full name:</label>
+        <input type="text" th:field="*{name}"/>
+    </div>
+    <br>
+    <div style="text-align: center;">
+        <label>E-mail:</label>
+        <input type="text" th:field="*{email}"/>
+    </div>
+    <br>
+    <div style="text-align: center;">
+        <label>Password:</label>
+        <input type="password" th:field="*{password}"/>
+    </div>
+    <br>
+    <div style="text-align: center;">
+        <label>Role:</label>
+        <select th:field="*{role}">
+            <option value="Instructor">Instructor</option>
+            <option value="Student">Student</option>
+        </select>
+    </div>
+    <br>
+    <div style="text-align: center;">
+        <button type="submit">Register</button>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!--
+Reference: https://www.javaguides.net/2019/04/spring-boot-thymeleaf-crud-example-tutorial.html
+-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<div style="text-align: center;">
+    <h1>Home</h1>
+</div>
+<br>
+<div style="text-align: center;">
+    <button><a th:href="@{/api/register}">Register</a></button>
+    <button><a th:href="@{/api/login}">Login</a></button>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!--
+Reference: https://www.javaguides.net/2019/04/spring-boot-thymeleaf-crud-example-tutorial.html
+-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Update User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          crossorigin="anonymous">
+</head>
+<body>
+<p class="my-5">
+    <a th:href="@{/api/courses/getCourseDetails/{id}(id=${course.courseId})}" class="btn btn-primary">
+        <i class="ml-2">Back</i></a>
+</p>
+
+<div class="container my-5">
+    <h3> Update submission</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-8">
+                <form action="#"
+                      th:action="@{/api/courses/getCourseDetails/{id}/assignments/{aID}/submissions/update/{sID}(id=${course.courseId}, aID=${assignment.assignmentId},
+                      sID=${submission.submissionId})}"
+                      th:object="${submission}" method="post">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="submissionLink" class="col-form-label">Submission Link</label> <input
+                                type="text" th:field="*{submissionLink}" class="form-control" id="submissionLink"
+                                placeholder="Submission Link"> <span
+                                th:if="${#fields.hasErrors('submissionLink')}" th:errors="*{submissionLink}"
+                                class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="receivedScore" class="col-form-label">receivedScore</label> <input
+                                type="text" th:field="*{receivedScore}" class="form-control" id="receivedScore"
+                                placeholder="receivedScore"> <span
+                                th:if="${#fields.hasErrors('receivedScore')}" th:errors="*{receivedScore}"
+                                class="text-danger"></span>
+                        </div>
+<!--                        <div class="form-group col-md-8">-->
+<!--                            <label for="isMarked" class="col-form-label">isMarked</label> <input-->
+<!--                                type="text" th:field="*{isMarked}" class="form-control" id="isMarked"-->
+<!--                                placeholder="isMarked"> <span-->
+<!--                                th:if="${#fields.hasErrors('isMarked')}" th:errors="*{isMarked}"-->
+<!--                                class="text-danger"></span>-->
+<!--                        </div>-->
+                        <div class="form-group col-md-8">
+                            <input type="submit" class="btn btn-primary"
+                                   value="Mark Submission">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

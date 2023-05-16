@@ -1,0 +1,23 @@
+<!--
+Reference: https://www.javaguides.net/2019/04/spring-boot-thymeleaf-crud-example-tutorial.html
+-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update User</title>
+</head>
+<body>
+<form action="#" th:action="@{/api/user/{userEmail}/update (userEmail = ${user.email})}" method="post" th:object="${user}">
+  <label>Full name:</label>
+  <input type="text" th:field="*{name}"/><br/>
+
+  <label>E-mail:</label>
+  <input type="text" th:field="*{email}" disabled/><br/>
+
+  <br>
+  <button type="submit">Update</button>
+</form>
+</body>
+</html>
